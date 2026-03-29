@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Under Construction</title>
-<link rel="icon" type="image/x-icon" href="images/favicon.ico">
-<audio controls loop title="Windows XP Installation Music">
-    <source src="sounds/WindowsXPInstallation.opus" type="audio/ogg">
-</audio>
-<audio controls loop title="Takeshi Abo - Lease">
-    <source src="sounds/lease.opus" type="audio/ogg">
-</audio>
-<style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Under Construction</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <p style="color: black;" class="alignright">
+            Windows XP Installation Music<br><br>
+        
+        <audio controls autoplay loop title="Windows XP Installation Music">
+            <source src="sounds/WindowsXPInstallation.opus" type="audio/ogg">
+        </audio>
+        </p>
+    <style>
+    
+    .alignright {
+        text-align: right;
+    }
 
     .aligncenter {
         text-align: center;
     }
 
+    .alignleft {
+        text-align: left;
+    }
+
     body {
-        margin: 0;
-        padding: 0;
-        font-family: Segoe UI, Tahoma, sans-serif;
-        background: linear-gradient(135deg, #8fd3ff, #e0ffe9 40%, #c0ffd1);
+        background-image: url('images/bliss-windows-xp-thumb-1098525208.jpg');
+        background-repeat: no-repeat;
         background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .floating-image {
+        position: absolute;
+        left: 500px;
+        top: 50px;
+        margin: 0;
     }
 
     .window {
-        width: 250px;
+        position: relative;
+        width: 450px;
         margin: 100px auto;
         border: 2px solid #0f449e;
         border-radius: 6px;
@@ -48,18 +64,33 @@
         font-size: 20px;
         text-align: center;
     }
-</style>
-</head>
-<body>
 
-<div class="window">
-    <div class="titlebar">Under Construction</div>
-    <div class="content">Website under construction</div>
-</div>
-
-<p class="aligncenter" title="Under Construction">
-    <img alt="under_construction" height="160" width="160" src="images/under_construction.png" class="center">
-</p>
-
-</body>
+    .contentleft {
+        padding: 20px;
+        font-size: 20px;
+        text-align: left;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="window">
+            <div class="titlebar">About Me</div>
+            <div class="floating-image" title="Kagamine Rin">
+                <img alt="kagamine_rin" height="260" width="160" src="images/rin_chibi_by_kmiluanime-d70p348-3783703814.png">
+            </div>
+            <div class="contentleft" title="profile"><img alt="profile" src="images/IMG_0912.jpeg" height="70" width="70">&emsp;&emsp;
+                <p style="font-size: large;">Topik</p>
+            </div> 
+            <div class="contentleft">Hi, I am Topik. I am a student living in Türkiye. There is no topic that I work intensively at.<br>
+                I mainly program in Python.<br> I know C, C++,
+                x86 Intel Assembly and HTML at beginner level.<br> I also use Arch btw.
+            </div>
+            <p class="alignleft">
+                &emsp;<a href="https://www.github.com/MrTopik"><button class="center" style="color: rgb(0, 0, 0);"><img src="images/GitHub_Invertocat_Black.png"
+                height="10" width="10"> GitHub</button></a>
+                <a href="https://steamcommunity.com/id/Mr-Topik/"><button class="center" style="color:rgb(0, 0, 0);"><img src="images/Steam_icon_logo.svg.png"
+                height="10" width="10"> Steam</button></a>
+            </p>
+        </div>
+    </body>
 </html>

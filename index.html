@@ -26,18 +26,6 @@
         text-shadow: 1px 1px 2px #000;
     }   
 
-    .alignright {
-        text-align: right;
-    }
-
-    .aligncenter {
-        text-align: center;
-    }
-
-    .alignleft {
-        text-align: left;
-    }
-
     body {
         background-image: url('images/bliss-windows-xp-thumb-1098525208.jpg');
         background-repeat: no-repeat;
@@ -54,7 +42,7 @@
 
     .window {
         position: relative;
-        width: 450px;
+        width: 1000px;
         margin: 100px auto;
         border: 2px solid #0f449e;
         border-radius: 6px;
@@ -138,13 +126,35 @@
 
     </style>
     </head>
+
     <body>
+        
         <div class="audio-container">
-        <span class="xp-audio-text">Windows XP Installation Music</span>
-            <audio controls autoplay loop title="Windows XP Installation Music">
-                <source src="sounds/WindowsXPInstallation.opus" type="audio/ogg">
+        <span id="track-name" class="xp-audio-text">Windows XP Installation Music</span>
+            <audio controls autoplay loop id="player" title="Windows XP Installation Music">
             </audio>
+            <button onclick="nextTrack()">Next Track</button>
         </div>
+        <script>
+            const tracks = [
+                {src:'sounds/WindowsXPInstallation.opus', name: 'Windows XP Installation Music' },
+                {src:'sounds/lease.opus', name: 'Takeshi Abo - Lease'}
+            ];
+
+            const player = document.getElementById('player');
+            const trackName = document.getElementById('track-name');
+            let current = 0;
+
+            player.src = tracks[current].src; // load first track
+
+            function nextTrack() {
+                current = (current + 1) % tracks.length; // loop back to 0 after last
+                const wasPlaying = !player.paused;
+                player.src = tracks[current].src;
+                trackName.textContent = tracks[current].name;
+                if (wasPlaying) player.play();
+            }
+        </script>
         <br><br><br><br>
         <div class="window">
             <div class="titlebar">About Me</div>
@@ -157,19 +167,31 @@
                 x86 Intel Assembly and HTML at beginner level.<br>There is only one Operating System that I truly love and that is Windows XP as you should be
                 able to tell from this website.<br><br> I also use Arch btw.
             </div>
-            <p class="alignleft">
-                &emsp;<a href="https://www.github.com/MrTopik"><button class="center" style="color: rgb(0, 0, 0);"><img src="images/GitHub_Invertocat_Black.png"
-                height="10" width="10"> GitHub</button></a>
-                <a href="https://steamcommunity.com/id/Mr-Topik/"><button class="center" style="color:rgb(0, 0, 0);"><img src="images/Steam_icon_logo.svg.png"
-                height="10" width="10"> Steam</button></a>
+            <p style="text-align: left;">
+                &emsp;<a href="https://www.github.com/MrTopik">
+                    <img alt="GitHub" src="images/github.png">
+                </a>
+                <a href="https://steamcommunity.com/id/Mr-Topik/">
+                    <img src="images/steam.gif" alt="Steam">
+                </a>
+                <img src="images/imissxp.gif">
+                <img src="images/winxp.gif">
+                <img src="images/archlinux.gif">
+                <img src="images/gnu-linux.gif">
+                <img src="images/cfs1.gif">
+                <img src="images/anonymize.gif">
+                <img src="images/beyes.gif">
+                <img src="images/hl.gif">
             </p>
         </div>
         <div class="xp-assistant">
             <div class="speech-bubble">
                 <p>こんにちは、鏡音リンです！ :3</p>
             </div>
+            <a href="page2.html">
             <img alt="kagamine_rin" height="200" width="123" src="images/rin_chibi_by_kmiluanime-d70p348-3783703814.png">
+            </a>
         </div>
-        <p class="alignright"><a href="page2.html" style="color: green;">secret</a></p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
 </html>

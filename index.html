@@ -79,12 +79,15 @@
     }
 
     .taskbar {
-        border-top: 2px solid linear-gradient(#356aa6,#3f7fc9);
         position: fixed;
-        background: linear-gradient(#31659f,#2a5689); /*3b77bc*/
-        width: 3000px;
+        display: flex;
+        align-items: stretch;
+        background: linear-gradient(to bottom, #4a84df 2%, #31659f 20%, #2a5689 100%); /*3b77bc*/
+        width: 100%;
         left: 0px;
-        bottom: -4px;
+        bottom: 0px;
+        height: 30px;
+        z-index: 9999;
     }
 
     .speech-bubble {

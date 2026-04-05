@@ -90,6 +90,32 @@
         z-index: 9999;
     }
 
+    .xp-systray {
+        display: flex;
+        align-items: center;
+        margin-left: auto;              /* push to right */
+        height: 100%;
+        padding: 0 8px 0 14px;
+        gap: 6px;
+
+        /* Classic XP teal gradient */
+        background: linear-gradient(to bottom, #1f8ba7 0%, #1a7a94 45%, #177088 50%, #1a7a94 100%);
+
+        /* Curved left edge – the little ridge */
+        border-left: 2px solid #0e5f77;
+        border-top-left-radius: 0;
+        box-shadow: inset 1px 0 0 #2aaecf, inset 0 1px 0 rgba(255,255,255,0.18);
+
+        /* Subtle highlight stripe across top */
+        border-top: 1px solid rgba(255,255,255,0.25);
+
+        font-family: "Tahoma", sans-serif;
+        font-size: 11px;
+        color: white;
+        white-space: nowrap;
+        cursor: default;
+    }
+
     .speech-bubble {
         position: relative;
         background: #FFFFE1; /* Classic yellow tooltip color */
@@ -127,6 +153,28 @@
         border-color: #000 transparent; /* Border color for arrow */
         display: block;
         width: 0;
+    }
+
+    .xp-clock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        padding: 0 2px;
+        cursor: default;
+    }
+
+    .xp-clock-time {
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 0.3px;
+    }
+
+    .xp-clock-date {
+        font-size: 9.5px;
+        opacity: 0.88;
     }
 
     </style>
@@ -203,6 +251,37 @@
         </div>
         <div class="taskbar">
             <img src="images/xp-start.png" height="30px" style="justify-content: left;">
+            <div class="xp-systray">
+                <div class="xp-clock" id="xp-clock" title="">
+                    <span class="xp-clock-time" id="xp-clock-time">12:00 PM</span>
+                    <span class="xp-clock-date" id="xp-clock-date">1/1/2004</span>
+                </div>
+            </div>
         </div>
+        <script>
+            function updateClock() {
+                const now = new Date();
+
+                // Time: h:mm AM/PM
+                let hours = now.getHours();
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+                document.getElementById('xp-clock-time').textContent = `${hours}:${minutes} ${ampm}`;
+
+                // Date: M/D/YYYY  (XP style)
+                const month = now.getMonth() + 1;
+                const day = now.getDate();
+                const year = now.getFullYear();
+                document.getElementById('xp-clock-date').textContent = `${month}/${day}/${year}`;
+
+                // Tooltip: full date string
+                document.getElementById('xp-clock').title =
+                    now.toLocaleDateString(undefined, { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        </script>
     </body>
 </html>

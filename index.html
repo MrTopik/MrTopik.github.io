@@ -33,13 +33,6 @@
         background-size: cover;
     }
 
-    .floating-image {
-        position: absolute;
-        left: 500px;
-        top: 50px;
-        margin: 0;
-    }
-
     .window {
         position: relative;
         width: 1000px;
@@ -83,6 +76,15 @@
         right: 20px;
         text-align: center;
         z-index: 2000;
+    }
+
+    .taskbar {
+        border-top: 2px solid linear-gradient(#356aa6,#3f7fc9);
+        position: fixed;
+        background: linear-gradient(#31659f,#2a5689); /*3b77bc*/
+        width: 3000px;
+        left: 0px;
+        bottom: -4px;
     }
 
     .speech-bubble {
@@ -131,7 +133,7 @@
         
         <div class="audio-container">
         <span id="track-name" class="xp-audio-text">Windows XP Installation Music</span>
-            <audio controls autoplay loop id="player" title="Windows XP Installation Music">
+            <audio controls loop id="player" title="Windows XP Installation Music">
             </audio>
             <button onclick="nextTrack()">Next Track</button>
         </div>
@@ -157,7 +159,7 @@
         </script>
         <br><br><br><br>
         <div class="window">
-            <div class="titlebar">About Me</div>
+            <div class="titlebar">About Me <span style="text-align: right; float: right;"><img src="images/xp-window-buttons.jpg" height="20px" width="70px"></span> </div>
             <div title="profile" style="padding: 20px; display: flex; align-items: center; gap: 25px;">
                 <img alt="profile" src="images/IMG_0912.jpeg" height="70" width="70">
                 <p style="margin: 0; font-weight: bold;">Topik</p>
@@ -165,8 +167,7 @@
             <div class="contentleft" style="text-shadow: 1px 1px 2px gray;">Hi, I am Topik. I am a student living in Türkiye.<br>
                 I work on several small projects on my GitHub and I start a new one when I get an idea.<br>
                 I mainly program in Python.<br> I know C, C++,
-                x86 Intel Assembly and HTML at beginner level.<br>There is only one Operating System that I truly love and that is Windows XP as you should be
-                able to tell from this website.<br><br> I also use Arch btw.
+                x86 Intel Assembly and HTML at beginner level.<br>Windows XP is my love ♥<br><br> I also use Arch btw.
             </div>
             <p style="text-align: left;">
                 &emsp;<a href="https://www.github.com/MrTopik">
@@ -197,6 +198,8 @@
             <img alt="kagamine_rin" height="200" width="123" src="images/rin_chibi_by_kmiluanime-d70p348-3783703814.png">
             </a>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="taskbar">
+            <img src="images/xp-start.png" height="30px" style="justify-content: left;">
+        </div>
     </body>
 </html>

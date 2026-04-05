@@ -24,6 +24,10 @@
         font-weight: bold;
         color: white;
         text-shadow: 1px 1px 2px #000;
+        display: block;
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
     }   
 
     body {
@@ -191,7 +195,8 @@
         <script>
             const tracks = [
                 {src:'sounds/WindowsXPInstallation.opus', name: 'Windows XP Installation Music' },
-                {src:'sounds/lease.opus', name: 'Takeshi Abo - Lease (from My Merry May)'}
+                {src:'sounds/lease.opus', name: 'Takeshi Abo - LEASE\n(from My Merry May)'},
+                {src:'sounds/ThePastAndNowLease.opus', name:'Takeshi Abo - The past and now LEASE\n(from My Merry Maybe)'}
             ];
 
             const player = document.getElementById('player');
@@ -205,12 +210,13 @@
                 const wasPlaying = !player.paused;
                 player.src = tracks[current].src;
                 trackName.textContent = tracks[current].name;
+                trackName.style.whiteSpace = 'pre-wrap';
                 if (wasPlaying) player.play();
             }
         </script>
         <br><br><br><br>
         <div class="window">
-            <div class="titlebar">About Me <span style="text-align: right; float: right;"><img src="images/xp-window-buttons.jpg" height="20px" width="70px"></span> </div>
+            <div class="titlebar">About Me <span style="text-align: right; float: right;"><img src="images/xp-window-buttons.jpg" height="20px" width="70px"></span></div>
             <div title="profile" style="padding: 20px; display: flex; align-items: center; gap: 25px;">
                 <img alt="profile" src="images/IMG_0912.jpeg" height="70" width="70">
                 <p style="margin: 0; font-weight: bold;">Topik</p>
@@ -219,7 +225,7 @@
                 I strongly support fully Free and Open Source Software.<br>
                 I work on several small projects on my GitHub and I start a new one when I get an idea.<br>
                 I mainly program in Python.<br> I know C, C++,
-                x86 Intel Assembly and HTML at beginner level.<br>My favourite video game of all time, without 
+                x86 Intel Assembly and HTML at beginner level.<br>My favorite video game of all time, without 
                 a doubt, is Half-Life.<br>Windows XP is my love ♥<br><br> I use Arch btw.
             </div>
             <p style="text-align: left;">

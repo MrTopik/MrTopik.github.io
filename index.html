@@ -191,7 +191,7 @@
         <script>
             const tracks = [
                 {src:'sounds/WindowsXPInstallation.opus', name: 'Windows XP Installation Music' },
-                {src:'sounds/lease.opus', name: 'Takeshi Abo - Lease'}
+                {src:'sounds/lease.opus', name: 'Takeshi Abo - Lease (from My Merry May)'}
             ];
 
             const player = document.getElementById('player');
@@ -216,9 +216,11 @@
                 <p style="margin: 0; font-weight: bold;">Topik</p>
             </div>
             <div class="contentleft" style="text-shadow: 1px 1px 2px gray;">Hi, I am Topik. I am a student living in Türkiye.<br>
+                I strongly support fully Free and Open Source Software.<br>
                 I work on several small projects on my GitHub and I start a new one when I get an idea.<br>
                 I mainly program in Python.<br> I know C, C++,
-                x86 Intel Assembly and HTML at beginner level.<br>Windows XP is my love ♥<br><br> I also use Arch btw.
+                x86 Intel Assembly and HTML at beginner level.<br>My favourite video game of all time, without 
+                a doubt, is Half-Life.<br>Windows XP is my love ♥<br><br> I use Arch btw.
             </div>
             <p style="text-align: left;">
                 &emsp;<a href="https://www.github.com/MrTopik">
@@ -253,8 +255,8 @@
             <img src="images/xp-start.png" height="30px" style="justify-content: left;">
             <div class="xp-systray">
                 <div class="xp-clock" id="xp-clock" title="">
-                    <span class="xp-clock-time" id="xp-clock-time">12:00 PM</span>
-                    <span class="xp-clock-date" id="xp-clock-date">1/1/2004</span>
+                    <span class="xp-clock-time" id="xp-clock-time">00:00</span>
+                    <span class="xp-clock-date" id="xp-clock-date">25/10/2001</span>
                 </div>
             </div>
         </div>
@@ -262,12 +264,10 @@
             function updateClock() {
                 const now = new Date();
 
-                // Time: h:mm AM/PM
+                // Time: h:mm
                 let hours = now.getHours();
                 const minutes = String(now.getMinutes()).padStart(2, '0');
-                const ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12 || 12;
-                document.getElementById('xp-clock-time').textContent = `${hours}:${minutes} ${ampm}`;
+                document.getElementById('xp-clock-time').textContent = `${hours}:${minutes}`;
 
                 // Date: M/D/YYYY  (XP style)
                 const month = now.getMonth() + 1;

@@ -5,6 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Me</title>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="https://pyscript.net/releases/2026.3.1/core.css" />
+        <script
+            type="module"
+            src="https://pyscript.net/releases/2026.3.1/core.js"
+        ></script>
     <style>
     
     .audio-container {
@@ -266,28 +271,16 @@
                 </div>
             </div>
         </div>
-        <script>
-            function updateClock() {
-                const now = new Date();
-
-                // Time: h:mm
-                let hours = now.getHours();
-                const minutes = String(now.getMinutes()).padStart(2, '0');
-                document.getElementById('xp-clock-time').textContent = `${hours}:${minutes}`;
-
-                // Date: M/D/YYYY  (XP style)
-                const month = now.getMonth() + 1;
-                const day = now.getDate();
-                const year = now.getFullYear();
-                document.getElementById('xp-clock-date').textContent = `${month}/${day}/${year}`;
-
-                // Tooltip: full date string
-                document.getElementById('xp-clock').title =
-                    now.toLocaleDateString(undefined, { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-            }
-
-            updateClock();
-            setInterval(updateClock, 1000);
+        <script type="py">
+            from pyscript import web
+            import datetime, time
+            def updateClock():
+                bugun = datetime.datetime.now()
+                web.page["xp-clock-time"].innerText = bugun.strftime('%H:%M')
+                web.page["xp-clock-date"].innerText = bugun.strftime('%d/%m/%Y')
+                time.sleep(2)
+                updateClock()
+            updateClock()
         </script>
     </body>
 </html>
